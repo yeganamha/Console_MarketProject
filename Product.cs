@@ -11,6 +11,8 @@ namespace ConsoleApp_Project
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
         public Category Categories { get; set; }  
+        public int Count { get; set; }  
+        public int Id { get; set; } 
     }
 
     public enum Category
