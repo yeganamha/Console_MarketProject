@@ -13,6 +13,8 @@ namespace ConsoleApp_Project.Interfaces
         public List<Product> Products { get; set; }
 
 
+
+
         void AddSales(Sales sales)
         {
             foreach (var item in Products)

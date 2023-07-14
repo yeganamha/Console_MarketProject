@@ -1,0 +1,15 @@
+C:\Users\yegan\Downloads\ConsoleApp_Project\bin\Debug\net6.0\ConsoleApp_Project.exe
+C:\Users\yegan\Downloads\ConsoleApp_Project\bin\Debug\net6.0\ConsoleApp_Project.deps.json
+C:\Users\yegan\Downloads\ConsoleApp_Project\bin\Debug\net6.0\ConsoleApp_Project.runtimeconfig.json
+C:\Users\yegan\Downloads\ConsoleApp_Project\bin\Debug\net6.0\ConsoleApp_Project.dll
+C:\Users\yegan\Downloads\ConsoleApp_Project\bin\Debug\net6.0\ConsoleApp_Project.pdb
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.csproj.AssemblyReference.cache
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.AssemblyInfoInputs.cache
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.AssemblyInfo.cs
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.csproj.CoreCompileInputs.cache
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.dll
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\refint\ConsoleApp_Project.dll
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.pdb
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.genruntimeconfig.cache
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ref\ConsoleApp_Project.dll
