@@ -1,12 +1,81 @@
-﻿using System;
+﻿using ConsoleApp_Project.Abstract;
+using ConsoleApp_Project.Interfaces.Services;
+using ConsoleApp_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+    
+
 namespace ConsoleApp_Project.Menu
 {
-    internal class SaleMenu
+    public class SaleMenu
     {
+        private static SaleService SaleService = new();
+        private List<Sales> Sales;
+
+        public static void AddNewSale()
+        {
+            try
+            {
+                SaleItems.ResetSaleItems();
+
+                List<SaleItems> saleItems = new List<SaleItems>();
+                bool addItems = true;
+
+                while (addItems)
+                {
+                    Console.WriteLine("Enter product code:");
+                    int productCode;
+
+                    while (!int.TryParse(Console.ReadLine(), out productCode))
+                    {
+                        Console.WriteLine("Invalid product code! Please enter a valid integer:");
+                    }
+
+                    Console.WriteLine("Enter the quantity:");
+                    int quantity;
+
+                    while (!int.TryParse(Console.ReadLine(), out quantity))
+                    {
+                        Console.WriteLine("Invalid quantity! Please enter a valid integer:");
+                    }
+
+                    var product = ProductService.GetProductsiD(productCode);
+
+                    var salesItem = new SaleItems
+                    {
+                        count = quantity,
+                        product = product
+                    };
+                    saleItems.Add(salesItem);
+
+                    Console.WriteLine("Do you want to add more items? (yes/no)");
+                    string choice = Console.ReadLine();
+
+                    if (choice.ToLower() != "yes")
+                    {
+                        addItems = false;
+                    }
+
+                }
+
+                var Sale = new Sales
+                {
+                    Date = DateTime.Now,
+                    SaleAmount = saleItems.Sum(item => item.product.Price * item.count),
+                    Items = saleItems
+                };
+
+                SaleService.AddSales(Sale);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error message: " + ex.Message);
+            }
+        }
     }
 }

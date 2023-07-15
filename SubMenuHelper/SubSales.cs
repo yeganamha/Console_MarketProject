@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp_Project.Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace ConsoleApp_Project.SubMenuHelper
                     switch (option)
                     {
                         case 1:
-
+                            SaleMenu.AddNewSale();
                             break;
                         case 2:
 

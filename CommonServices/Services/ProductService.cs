@@ -24,6 +24,10 @@ namespace ConsoleApp_Project.Interfaces.Services
         {
             return Products;
         }
+        public static Product GetProductsiD(int code)
+        {
+            return Products.FirstOrDefault(x => x.Id == code);
+        }
         public static int AddProduct(string name, decimal price, string category, int count)
         {
             if (string.IsNullOrWhiteSpace(name))

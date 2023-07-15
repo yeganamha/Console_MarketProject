@@ -13,3 +13,5 @@ C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\refint\ConsoleApp_P
 C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.pdb
 C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.genruntimeconfig.cache
 C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ref\ConsoleApp_Project.dll
+C:\Users\yegan\Downloads\ConsoleApp_Project\bin\Debug\net6.0\ConsoleTables.dll
+C:\Users\yegan\Downloads\ConsoleApp_Project\obj\Debug\net6.0\ConsoleApp_Project.csproj.CopyComplete
