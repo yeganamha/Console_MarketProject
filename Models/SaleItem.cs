@@ -8,6 +8,10 @@ namespace ConsoleApp_Project.Models
 {
     public class SaleItem:BaseEntity
     {
+        public SaleItem()
+        {
+            
+        }   
         public Product Product { get; set; }
         public int ItemCount { get; set; }
     }

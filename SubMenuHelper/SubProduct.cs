@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_Project.SubMenuHelper
 {
-    public static class SubMenuHelperSales
+    public static class SubProduct
     {
-        public static void SaleSubMenu()
+        public static void ProductSubMenu()
         {
-            Console.Clear();
+            
             int option;
             do
             {
-                Console.WriteLine("1. Add new sale:");
-                Console.WriteLine("2. Return product from sale");
-                Console.WriteLine("3. Delete sale");
-                Console.WriteLine("4. Show all sales");
-                Console.WriteLine("5. Show sales as date range:");
-                Console.WriteLine("6. Show sales as price range");
-                Console.WriteLine("7. Show sales as date ");
-                Console.WriteLine("0. Show sale as Id: ");
-
+                Console.WriteLine("1. Add new product:");
+                Console.WriteLine("2. Update productI");
+                Console.WriteLine("3. Delete product");
+                Console.WriteLine("4. Show all product");
+                Console.WriteLine("5. Show all product as category");
+                Console.WriteLine("6. Show all product as price range");
+                Console.WriteLine("7. Search product as name");
+                Console.WriteLine("0. Go back ");
 
 
                 Console.WriteLine("-----------");
@@ -38,13 +37,22 @@ namespace ConsoleApp_Project.SubMenuHelper
                 switch (option)
                 {
                     case 1:
-
+                        
                         break;
                     case 2:
+                        
+                        break;
+                    case 3:
+                        break;
+                        case 4:
+                            break;
+                        case 5:
+                            break;
+                        case 6:
+                            break;
+                        case 7:
+                            break;
 
-                        break;
-                    case 0:
-                        break;
                     default:
                         Console.WriteLine("There is no such option!");
                         break;
@@ -55,4 +63,4 @@ namespace ConsoleApp_Project.SubMenuHelper
 
     }
 }
-}
+ 

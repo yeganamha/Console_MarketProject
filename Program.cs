@@ -27,11 +27,11 @@ namespace ConsoleApp_Project
                 switch (option)
                 {
                     case 1:
-                        SubMenuHelperProduct.ProductSubMenu();
+                        SubProduct.ProductSubMenu();
                         
                         break;
                     case 2:
-                        SubMenuHelperSales.SaleSubMenu();
+                        SalesMenu.SaleSubMenu();
                         break;
                     case 0:
                         Console.WriteLine("Exit...");
