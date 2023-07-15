@@ -19,7 +19,7 @@ namespace ConsoleApp_Project.SubMenuHelper
                 Console.WriteLine("2. Update productI");
                 Console.WriteLine("3. Delete product");
                 Console.WriteLine("4. Show all product");
-                Console.WriteLine("5. Show all product as category");
+                Console.WriteLine("5. Show all product as category"); 
                 Console.WriteLine("6. Show all product as price range");
                 Console.WriteLine("7. Search product as name");
                 Console.WriteLine("0. Go back ");
@@ -44,12 +44,16 @@ namespace ConsoleApp_Project.SubMenuHelper
                         ProductMenu.UpdateProduct();
                         break;
                     case 3:
+                        ProductMenu.DeleteProduct();
                         break;
                         case 4:
+                        ProductMenu.ShowAllProduct();
                             break;
                         case 5:
+                        
                             break;
                         case 6:
+                        ProductMenu.ShowProductPricebyRange();
                             break;
                         case 7:
                             break;
