@@ -3,6 +3,7 @@ using ConsoleApp_Project.Models;
 using ConsoleTables;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -151,11 +152,11 @@ namespace ConsoleApp_Project.Interfaces.Services
             var table = new ConsoleTable("Sale Number", "SaleItem Number", "Quantity", "Product Name", "Amount", "Date");
             if (showByDate.Count > 0)
             {
-                foreach (var saleD in showByDate)
+                foreach (var sale in showByDate)
                 {
-                    foreach (var access in saleD.SaleItems)
+                    foreach (var access in sale.Items)
                     {
-                        table.AddRow(saleD.Id, access.SaleItemNumber, access.Quantity, access.Product.ProductName, saleD.Amount, saleD.Date);
+                        table.AddRow(sale.Id, access.SaleItemNum, access.count, access.product.Name, sale.SaleAmount, sale.Date);
                     }
 
 
@@ -168,8 +169,71 @@ namespace ConsoleApp_Project.Interfaces.Services
             }
 
         }
+
+        public void ShowSalesByDate(DateTime date)
+        {
+            Console.WriteLine(date);
+
+            if (date > DateTime.Now.AddSeconds(-1))
+            {
+                throw new InvalidDataException("Exceeded Today's Date... End date cannot be greater than today's day!");
+            }
+
+            var showByDate = Sales.FindAll(x => x.Date.AddSeconds(-1) >= date || x.Date.AddSeconds(1) <= date).ToList();
+
+
+            var table = new ConsoleTable("Sale Number", "SaleItem Number", "Quantity", "Product Name", "Sale Amount", " Sale Date");
+            if (showByDate.Count > 0)
+            {
+                foreach (var saleD in showByDate)
+                {
+                    foreach (var access in saleD.Items)
+                    {
+                        table.AddRow(saleD.Id, access.SaleItemNum, access.count, access.product.Name, saleD.SaleAmount, saleD.Date);
+                    }
+
+
+                }
+                table.Write(Format.Alternative);
+            }
+            else
+            {
+                throw new Exception("No sales found within the given date .");
+            }
+        }
+
+       
+
+        private object GetProductByCode(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowSaleById(int saleNumber)
+        {
+            if (saleNumber < 0) //????????????
+            {
+                throw new FormatException("Sale Number is lower than 0.");
+            }
+
+            var saleRes = Sales.SingleOrDefault(x => x.Id == saleNumber);
+
+            if (saleRes == null)
+            {
+                throw new Exception("Product not found. xexe");
+            }
+            var table = new ConsoleTable("Sale Number", "SaleItem Number", "Quantity", "Product Name", "Amount", "Date");
+            foreach (var item in saleRes.Items)
+            {
+                table.AddRow(saleRes.Id, item.SaleItemNum, item.count, item.product.Name, saleRes.SaleAmount, saleRes.Date);
+            }
+
+            table.Write(Format.Alternative);
+
+        }
+
     }
 
-    
+
 }   
     

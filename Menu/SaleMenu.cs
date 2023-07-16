@@ -143,6 +143,46 @@ namespace ConsoleApp_Project.Menu
                   
         }
 
+        
+
+        public static void MenuShowSalesByDate()
+        {
+            try
+            {
+                Console.WriteLine("Enter the date of sales you want to find (dd/MM/yy HH:mm:ss) : ");
+                DateTime saleDate;
+
+                while (!DateTime.TryParseExact(Console.ReadLine().Trim(), "dd/MM/yy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out saleDate))
+                {
+                    throw new Exception("Invalid input (dd/MM/yy HH:mm:ss).");
+
+                }
+                SaleService.ShowSalesByDate(saleDate);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while processing11. Message: {ex.Message}");
+            }
+        }
+
+        public static void MenuShowSaleByID()
+        {
+            try
+            {
+                Console.WriteLine("Enter Sale Code: ");
+                int saleCode;
+                while (!int.TryParse(Console.ReadLine(), out saleCode))
+                {
+                    Console.WriteLine("Invalid Sale code! Please enter a valid integer:");
+                }
+                SaleService.ShowSaleById(saleCode);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: 1234" + ex.Message);
+            }
+        }
 
     }
 }

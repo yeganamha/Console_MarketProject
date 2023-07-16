@@ -96,33 +96,8 @@ namespace ConsoleApp_Project.Interfaces.Services
                 Console.WriteLine(ex.Message);
             }
         }
-        public void AsCategoryShowProducts()
-        {
-            try
-            {
-
-                Console.WriteLine("All categories:");
-                foreach (Category category in Enum.GetValues(typeof(Category)))
-                {
-                    Console.WriteLine($"{(int)category}. {category}");
-                }
-
-                Console.WriteLine("Enter the category (number):");
-                int CategoryNumber = Convert.ToInt32(Console.ReadLine());
-
-                ProductService.ShowAllCategory(CategoryNumber);
-
-                //  ProductService.ShowAnyKindOfProductlistInTable(ProductService.ShowAllCategory(categoryNumber));
-
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine($"Oops! Got an error!{ex.Message}");
-
-            }
-        }
         
+
         public static void AsPriceRangeShowProducts(decimal minPrice, decimal maxPrice)
         {
             // Filter sales within the given price range
@@ -143,24 +118,29 @@ namespace ConsoleApp_Project.Interfaces.Services
             table.Write();
             return;
         }
-        public void AsNameSearchProducts()
-        { }
-        public static List<Product> SearchByName(string productname)
+        public static void  SearchProductsByName(string productName)
         {
-            var searchname = ProductService.Products.Where(x => x.Name.ToLower().Trim() == productname.ToLower().Trim()).ToList();
-            if (searchname == null)
-                throw new Exception($"There is no {searchname} product");
+            var searchProductByName = Products.Where(x => x.Name.ToLower() == productName.ToLower()).ToList();
 
-            return searchname;
-        }
-        public static void EnumList()
-        {
-            foreach (var item in Enum.GetNames(typeof(Category)))
+            var tableForName = new ConsoleTable("Code", "Product Name", "Product Quantity",
+                    "Product Price", "Category");
+
+            if (searchProductByName.Count == 0)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("No products found.");
+                return;
             }
-        }
 
+            foreach (var product in searchProductByName)
+            {
+                tableForName.AddRow(product.Id, product.Name, product.Count, product.Price, product.Category);
+            }
+
+            tableForName.Write();
+
+
+            
+        }
 
         public static void ShowAllCategory(object productCategory)
         {
@@ -177,6 +157,50 @@ namespace ConsoleApp_Project.Interfaces.Services
 
             }
 
+        }
+
+        public static void EnumList()
+        {
+            foreach (var item in Enum.GetNames(typeof(Category)))
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        public void AsCategoryShowProducts(Category category)
+        {
+            var showByCategory = Products.FindAll(x => x.Category.ToString().ToLower() == category.ToString().ToLower()).ToList();
+            var tableForCategory = new ConsoleTable("Code", "Product Name", "Product Quantity",
+                   "Product Price", "Category");
+            if (showByCategory.Count == 0)
+            {
+                Console.WriteLine("No products found.");
+                return;
+            }
+
+            foreach (var product in showByCategory)
+            {
+                tableForCategory.AddRow(product.Id, product.Name, product.Count, product.Price, product.Category.ToString());
+            }
+
+            tableForCategory.Write();
+        }
+
+        internal static void SearchProductsByName(Category searchCategory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product GetProductByCode(int productCode)
+        {
+            var product = Products.SingleOrDefault(x => x.Id == productCode);
+
+            if (product == null)
+            {
+                throw new Exception("Product not found.!");
+            }
+
+            return product;
         }
     }
 }

@@ -133,6 +133,36 @@ namespace ConsoleApp_Project.Menu
             ProductService.AsPriceRangeShowProducts(price, price1);
         }
 
+        public static void MenuSearchProductsByName()
+        {
+            try
+            {
+                Console.WriteLine("Enter Products name: ");
+                string name = Console.ReadLine();
+                ProductService.SearchProductsByName(name);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+
+        public static void MenuShowProductsByCategory()
+        {
+            try
+            {
+                Console.WriteLine("Enter category of the product: ");
+                string categoryString = Console.ReadLine();
+                var searchCategory = (Category)Enum.Parse(typeof(Category), categoryString, ignoreCase: true);
+
+                ProductService.SearchProductsByName(searchCategory);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Category not found.");
+            }
+        }
+
     }    
     
 }

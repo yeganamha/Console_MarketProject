@@ -42,7 +42,7 @@ namespace ConsoleApp_Project.SubMenuHelper
                             SaleMenu.AddNewSale();
                             break;
                         case 2:
-
+                       
                             break;
                         case 3:
                         SaleMenu.DeleteSale();
@@ -56,6 +56,9 @@ namespace ConsoleApp_Project.SubMenuHelper
                         case 6:
                         SaleMenu.ShowSalesbyPriceRange();
                             break;
+                        case 7:
+                        SaleMenu.MenuShowSaleByID();    
+                        break;
                         default:
                             Console.WriteLine("There is no such option!");
                             break;

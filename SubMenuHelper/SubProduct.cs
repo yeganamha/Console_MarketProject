@@ -19,10 +19,10 @@ namespace ConsoleApp_Project.SubMenuHelper
                 Console.WriteLine("2. Update productI");//+
                 Console.WriteLine("3. Delete product");//+
                 Console.WriteLine("4. Show all product");//+
-                Console.WriteLine("5. Show all product as category"); 
+                Console.WriteLine("5. Show all product as category"); //+
                 Console.WriteLine("6. Show all product as price range");//+
-                Console.WriteLine("7. Search product as name");
-                Console.WriteLine("0. Go back ");
+                Console.WriteLine("7. Search product as name");//+
+               
 
 
                 Console.WriteLine("-----------");
@@ -50,15 +50,16 @@ namespace ConsoleApp_Project.SubMenuHelper
                         ProductMenu.ShowAllProduct();
                             break;
                         case 5:
-                        
+                        ProductMenu.MenuShowProductsByCategory();
                             break;
                         case 6:
                         ProductMenu.ShowProductPricebyRange();
                             break;
                         case 7:
+                        ProductMenu.MenuSearchProductsByName();
                             break;
 
-                    default:
+                        default:
                         Console.WriteLine("There is no such option!");
                         break;
                 }

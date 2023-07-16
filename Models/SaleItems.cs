@@ -26,5 +26,10 @@ namespace ConsoleApp_Project.Models
         {
             _count = 1;
         }
+        public SaleItems(int saleItemQuantity, Product productForItem)
+        {
+            count = saleItemQuantity;
+            product = productForItem;
+        }
     }
 }
