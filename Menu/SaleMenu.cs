@@ -77,5 +77,36 @@ namespace ConsoleApp_Project.Menu
                 Console.WriteLine("Error message: " + ex.Message);
             }
         }
+
+        public static void ShowAllSales()
+        {
+            SaleService.ShowAllSales();
+        }
+
+        public static void ShowSalesbyPriceRange()
+        {
+            Console.WriteLine("Enter min price:");
+            decimal priceSales = decimal.Parse(Console.ReadLine());
+            Console.WriteLine("Enter max price: ");
+            decimal priceSaless = decimal.Parse(Console.ReadLine());
+            SaleService.DisplaySalesByPriceRange(priceSales, priceSaless);
+        }
+
+        public static void DeleteSale()
+        {
+            try
+            {
+                Console.WriteLine("Enter product ID :");
+                int productId = int.Parse(Console.ReadLine());
+                SaleService.DeleteSales(productId);
+                Console.WriteLine($"Successfully deleted product with ID: {productId}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Oops! Got an error!");
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }

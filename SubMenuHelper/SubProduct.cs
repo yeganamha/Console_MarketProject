@@ -15,12 +15,12 @@ namespace ConsoleApp_Project.SubMenuHelper
             int option;
             do
             {
-                Console.WriteLine("1. Add new product:");
-                Console.WriteLine("2. Update productI");
-                Console.WriteLine("3. Delete product");
-                Console.WriteLine("4. Show all product");
+                Console.WriteLine("1. Add new product:");//+
+                Console.WriteLine("2. Update productI");//+
+                Console.WriteLine("3. Delete product");//+
+                Console.WriteLine("4. Show all product");//+
                 Console.WriteLine("5. Show all product as category"); 
-                Console.WriteLine("6. Show all product as price range");
+                Console.WriteLine("6. Show all product as price range");//+
                 Console.WriteLine("7. Search product as name");
                 Console.WriteLine("0. Go back ");
 

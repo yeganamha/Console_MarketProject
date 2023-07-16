@@ -1,4 +1,5 @@
-﻿using ConsoleApp_Project.SubMenuHelper;
+﻿using ConsoleApp_Project.Menu;
+using ConsoleApp_Project.SubMenuHelper;
 
 namespace ConsoleApp_Project
 {
@@ -27,7 +28,7 @@ namespace ConsoleApp_Project
                         
                         break;
                     case 2:
-                            
+                        SubSales.SaleSubMenu();
                         break;
                     case 0:
                         Console.WriteLine("Exit...");
