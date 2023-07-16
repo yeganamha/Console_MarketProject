@@ -85,8 +85,7 @@ namespace ConsoleApp_Project.Interfaces.Services
                 }
                 foreach (var product in products)
                 {
-                    table.AddRow(product.Id, product.Name, product.Count, product.Price,
-                         product.Category);
+                    table.AddRow(product.Id, product.Name, product.Count, product.Price, product.Category);
                 }
                 table.Write();
             }
@@ -98,22 +97,21 @@ namespace ConsoleApp_Project.Interfaces.Services
         }
         
 
-        public static void AsPriceRangeShowProducts(decimal minPrice, decimal maxPrice)
+        public static void AsPriceRangeShowProducts(decimal minPrice, decimal maxPrice) 
         {
-            // Filter sales within the given price range
+           
             var range = Products.FindAll(x => x.Price >= minPrice && x.Price <= maxPrice);
 
             var products = GetProducts();
             var table = new ConsoleTable("ID", "Name", "Count", "Price", "Category");
             if (range.Count == 0)
             {
-                Console.WriteLine("NO PRODUCT YET");
+                Console.WriteLine("There is no product");
                 return;
             }
             foreach (var product in range)
             {
-                table.AddRow(product.Id, product.Name, product.Count, product.Price,
-                     product.Category);
+                table.AddRow(product.Id, product.Name, product.Count, product.Price, product.Category);
             }
             table.Write();
             return;
@@ -122,8 +120,7 @@ namespace ConsoleApp_Project.Interfaces.Services
         {
             var searchProductByName = Products.Where(x => x.Name.ToLower() == productName.ToLower()).ToList();
 
-            var tableForName = new ConsoleTable("Code", "Product Name", "Product Quantity",
-                    "Product Price", "Category");
+            var tableForName = new ConsoleTable("Code", "Product Name", "Product Quantity", "Product Price", "Category");
 
             if (searchProductByName.Count == 0)
             {
@@ -170,8 +167,8 @@ namespace ConsoleApp_Project.Interfaces.Services
         public void AsCategoryShowProducts(Category category)
         {
             var showByCategory = Products.FindAll(x => x.Category.ToString().ToLower() == category.ToString().ToLower()).ToList();
-            var tableForCategory = new ConsoleTable("Code", "Product Name", "Product Quantity",
-                   "Product Price", "Category");
+
+            var tableForCategory = new ConsoleTable("Code", "Product Name", "Product Quantity", "Product Price", "Category");
             if (showByCategory.Count == 0)
             {
                 Console.WriteLine("No products found.");

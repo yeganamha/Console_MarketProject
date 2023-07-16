@@ -84,6 +84,7 @@ namespace ConsoleApp_Project.Interfaces.Services
                         foreach (var saleitem in sale.Items)
                         {
                             var productName = saleitem.product != null ? saleitem.product.Name : string.Empty;
+
                             table.AddRow(sale.Id, saleitem.SaleItemNum, saleitem.count, productName, sale.SaleAmount, sale.Date);
                         }
                     }
@@ -94,6 +95,7 @@ namespace ConsoleApp_Project.Interfaces.Services
             catch (Exception ex)
             {
                 Console.WriteLine("Oops! Got an error!");
+
                 Console.WriteLine(ex.Message);
             }
 
@@ -105,6 +107,7 @@ namespace ConsoleApp_Project.Interfaces.Services
             var sales = GetSales();
 
             var table = new ConsoleTable("Sales", "SalesItem", "Count", "Product Name", "Total Price", "DateTime");
+
             if (range.Count == 0)
             {
                 Console.WriteLine("There is no product");
@@ -117,6 +120,7 @@ namespace ConsoleApp_Project.Interfaces.Services
                     foreach (var saleitem in sale.Items)
                     {
                         var productName = saleitem.product != null ? saleitem.product.Name : string.Empty;
+
                         table.AddRow(sale.Id, saleitem.SaleItemNum, saleitem.count, productName, sale.SaleAmount, sale.Date);
                     }
                 }
@@ -129,8 +133,11 @@ namespace ConsoleApp_Project.Interfaces.Services
         public static void DeleteSales(int code)
         {
             var existingProduct = Sales.Find(x => x.Id == code);
+
             if (existingProduct == null)
-                throw new Exception($"Product with ID {code} not found");
+
+            throw new Exception($"Product with ID {code} not found");
+
             Sales = Sales.Where(x => x.Id != code).ToList();
         }
 
@@ -202,7 +209,7 @@ namespace ConsoleApp_Project.Interfaces.Services
             }
         }
 
-       
+
 
         private object GetProductByCode(int id)
         {
@@ -211,7 +218,7 @@ namespace ConsoleApp_Project.Interfaces.Services
 
         public void ShowSaleById(int saleNumber)
         {
-            if (saleNumber < 0) //????????????
+            if (saleNumber < 0) 
             {
                 throw new FormatException("Sale Number is lower than 0.");
             }
@@ -235,5 +242,5 @@ namespace ConsoleApp_Project.Interfaces.Services
     }
 
 
-}   
-    
+}
+

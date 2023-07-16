@@ -9,7 +9,7 @@ namespace ConsoleApp_Project.SubMenuHelper
 {
     public static class SubProduct
     {
-        public static void ProductSubMenu()
+        public static void ProductSubMenu() //Product Menu
         {
             
             int option;
@@ -37,15 +37,15 @@ namespace ConsoleApp_Project.SubMenuHelper
 
                 switch (option)
                 {
-                    case 1:
+                        case 1:
                         ProductMenu.AddProduct();
-                        break;
-                    case 2:
+                            break;
+                        case 2:
                         ProductMenu.UpdateProduct();
-                        break;
-                    case 3:
+                             break;
+                        case 3:
                         ProductMenu.DeleteProduct();
-                        break;
+                            break;
                         case 4:
                         ProductMenu.ShowAllProduct();
                             break;
@@ -58,10 +58,9 @@ namespace ConsoleApp_Project.SubMenuHelper
                         case 7:
                         ProductMenu.MenuSearchProductsByName();
                             break;
-
                         default:
                         Console.WriteLine("There is no such option!");
-                        break;
+                            break;
                 }
 
             } while (option != 0);
