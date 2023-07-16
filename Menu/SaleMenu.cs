@@ -3,6 +3,7 @@ using ConsoleApp_Project.Interfaces.Services;
 using ConsoleApp_Project.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,6 +108,41 @@ namespace ConsoleApp_Project.Menu
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public static void MenuShowSalesByDateRange()
+        {
+
+
+            try
+            {
+                Console.WriteLine("Enter start date (MM/dd/yyyy): ");
+                DateTime startDay;
+
+                if (!DateTime.TryParseExact(Console.ReadLine(), "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out startDay))
+                {
+                    Console.WriteLine("Invalid input. Please enter valid date (MM/dd/yyyy).");
+                    return;
+                }
+
+                Console.WriteLine("Enter end date (MM/dd/yyyy): ");
+                DateTime endDay;
+
+                if (!DateTime.TryParseExact(Console.ReadLine(), "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out endDay))
+                {
+                    Console.WriteLine("Invalid input. Please enter valid date (MM/dd/yyyy).");
+                    return;
+                }
+
+                SaleService.ShowSalesByDateRange(startDay, endDay);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while processing. Message: {ex.Message}");
+            }
+                  
+        }
+
 
     }
 }

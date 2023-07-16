@@ -132,6 +132,42 @@ namespace ConsoleApp_Project.Interfaces.Services
                 throw new Exception($"Product with ID {code} not found");
             Sales = Sales.Where(x => x.Id != code).ToList();
         }
+
+        public void ShowSalesByDateRange(DateTime startDate, DateTime endDate)
+        {
+            endDate = endDate.AddDays(1).AddSeconds(-1);
+
+
+            if (startDate > endDate)
+                throw new InvalidDataException("Start date cannot be greater than end date!");
+
+            if (endDate.Date > DateTime.Now.AddDays(1))
+            {
+                throw new InvalidDataException("End date cannot be greater than today's day!");
+            }
+
+            var showByDate = Sales.FindAll(x => x.Date >= startDate && x.Date <= endDate).ToList();
+
+            var table = new ConsoleTable("Sale Number", "SaleItem Number", "Quantity", "Product Name", "Amount", "Date");
+            if (showByDate.Count > 0)
+            {
+                foreach (var saleD in showByDate)
+                {
+                    foreach (var access in saleD.SaleItems)
+                    {
+                        table.AddRow(saleD.Id, access.SaleItemNumber, access.Quantity, access.Product.ProductName, saleD.Amount, saleD.Date);
+                    }
+
+
+                }
+                table.Write(Format.Alternative);
+            }
+            else
+            {
+                throw new Exception("No sales found within the given date range.");
+            }
+
+        }
     }
 
     
